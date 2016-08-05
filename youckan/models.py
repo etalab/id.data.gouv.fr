@@ -80,7 +80,7 @@ class SsoOauth2Application(models.Model):
         db_table = 'sso_oauth2application'
 
 
-class YouckanUser(AbstractBaseUser):
+class YouckanUser(models.Model):
     password = models.CharField(max_length=128)
     last_login = models.DateTimeField()
     is_superuser = models.BooleanField()

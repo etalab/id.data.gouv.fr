@@ -142,4 +142,4 @@ INCLUDE_REGISTER_URL = False
 LOGIN_URL = 'auth_login'
 
 
-AUTH_USER_MODEL = 'youckan.YouckanUser'
+AUTH_USER_MODEL = 'register.User'

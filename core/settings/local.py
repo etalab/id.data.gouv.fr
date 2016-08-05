@@ -18,3 +18,6 @@ INTERNAL_IPS = ('127.0.0.1',)
 DEBUG_TOOLBAR_CONFIG = {
     'INTERCEPT_REDIRECTS': False,
 }
+
+ALLOWED_HOSTS = ['data.gouv.dev', 'data.gouv.dev:7000',
+'http://data.gouv.dev', 'http://data.gouv.dev:7000']

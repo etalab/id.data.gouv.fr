@@ -1,4 +1,5 @@
 Django==1.10
 django-cors-headers==1.1.0
 django-oauth-toolkit==0.10.0
-django-registration-redux==1.4
+psycopg2==2.6.2
+-e git+https://github.com/scopyleft/django-registration.git#egg=django-registration-redux

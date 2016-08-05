@@ -32,6 +32,9 @@ class User(AbstractBaseUser):
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=False)
     date_joined = models.DateTimeField(auto_now_add=True, null=False)
+    slug = models.SlugField(max_length=150)
+    first_name = models.CharField(max_length=64)
+    last_name = models.CharField(max_length=64)
 
     USERNAME_FIELD = 'email'
 
@@ -44,4 +47,7 @@ class User(AbstractBaseUser):
         return self.is_staff
 
     def has_perm(self, *args):
+        return self.is_staff
+
+    def is_superuser(self, *args):
         return self.is_staff
