@@ -1,5 +1,5 @@
 
-# Enable migrations from youckan to ID from a `dj dbshell`
+# Enable migrations from youckan to ID from a `dj dbshell`:
 alter table youckan_user as user add column "username" character varying(255) DEFAULT user.email;
  update youckan_user set username = email;
 drop table auth_permission cascade;
@@ -13,6 +13,14 @@ drop table oauth2_provider_grant cascade;
 drop table oauth2_provider_refreshtoken cascade;
 drop table django_session cascade;
 
-# Migrate all youckan users to ID users with `dj shell`
+# Then run migrations:
+dj migrate --fake-initial youckan
+dj migrate
+
+
+# Migrate all youckan users to ID users with `dj shell`:
+from django.contrib.auth import get_user_model
+from youckan.models import YouckanUser
+User = get_user_model()
 for youser in YouckanUser.objects.all():
-	User.objects.create(**{k: v for k,v in youser.__dict__.items() if k in ('password', 'email', 'first_name', 'last_name', 'is_staff', 'slug', 'is_active', 'date_joined')})
+  user = User.objects.create(**{k: v for k,v in youser.__dict__.items() if k in ('password', 'email', 'first_name', 'last_name', 'is_staff', 'slug', 'is_active', 'date_joined')})
