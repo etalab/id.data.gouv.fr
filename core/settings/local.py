@@ -21,3 +21,9 @@ DEBUG_TOOLBAR_CONFIG = {
 
 ALLOWED_HOSTS = ['data.gouv.dev', 'data.gouv.dev:7000',
 'http://data.gouv.dev', 'http://data.gouv.dev:7000']
+
+SESSION_COOKIE_SECURE = False
+SESSION_COOKIE_HTTPONLY = False
+CSRF_COOKIE_SECURE = False
+CSRF_COOKIE_HTTPONLY = False
+SOCIAL_AUTH_REDIRECT_IS_HTTPS = False

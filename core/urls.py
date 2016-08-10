@@ -20,8 +20,10 @@ from authentication.views import login
 
 urlpatterns = [
     url(r'^login/', login),
+    url(r'^registration/', include('register.urls')),
     url(r'^oauth/', include('oauth2_provider.urls',
-                            namespace='oauth2_provider')),
+        namespace='oauth2_provider')),
+    url(r'^account/', include('account.urls', namespace='account')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^', include('register.urls')),
     url(r'^', include('default.urls')),
