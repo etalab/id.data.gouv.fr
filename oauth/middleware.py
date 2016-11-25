@@ -19,8 +19,7 @@ class OAuth2TokenMiddleware:
                     request.user = request._cached_user = user
                 else:
                     response = HttpResponse('Unauthorized', status=401)
-                    response['WWW-Authenticate'] = (
-                        'Bearer realm="api"')
+                    response['WWW-Authenticate'] = 'Bearer realm="api"'
                     return response
 
         return self.get_response(request)

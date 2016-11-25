@@ -48,6 +48,7 @@ INSTALLED_APPS = (
 )
 
 AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
     'oauth2_provider.backends.OAuth2Backend',
 )
 
@@ -144,5 +145,10 @@ INCLUDE_REGISTER_URL = False
 # Name of the URL where a user may login
 LOGIN_URL = 'auth_login'
 
-
 AUTH_USER_MODEL = 'register.User'
+
+OAUTH2_PROVIDER = {
+    'SCOPES': {'email': 'Viewing your email address.'},
+    'READ_SCOPE': ['email'],
+    'DEFAULT_SCOPES': []
+}
